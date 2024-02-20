@@ -6,6 +6,7 @@ import { Modal } from "./Modal";
 
 export const Header = () => {
   const [showModal, setShowModal] = useState(false);
+  console.log("main yoo");
 
   const addModal = () => {
     setShowModal(true);
