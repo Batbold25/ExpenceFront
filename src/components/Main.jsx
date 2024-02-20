@@ -6,7 +6,22 @@ import { Topside } from "./Icons/Topside";
 import { DownIcon } from "./Icons/DownIcon";
 import { HouseIcon } from "./Icons/HouseIcon";
 
+import { Chart } from "./Chart";
+
 export const Main = () => {
+  const data = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [
+      {
+        label: "My First Dataset",
+        data: [65, 59, 80, 81, 56, 55, 40],
+        fill: false,
+        borderColor: "rgb(75, 192, 192)",
+        tension: 0.1,
+      },
+    ],
+  };
+
   return (
     <div className="w-screen ">
       <Header />
@@ -15,7 +30,7 @@ export const Main = () => {
 
       <div className="w-full px-32 bg-gray-200 py-7 flex items-center flex-col gap-5">
         <div className=" flex gap-5">
-          <div className=" drop-shadow-2xl w-96 h-56 bg-blue-600 rounded-xl p-9 place-content-between flex flex-col hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150">
+          <div className=" drop-shadow-lg	 w-96 h-56 bg-blue-600 rounded-xl p-9 place-content-between flex flex-col hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150">
             <div className="flex items-center gap-2">
               <MiniLogo width="21" height="21" />{" "}
               <h1 className=" text-white font-bold">Geld</h1>
@@ -30,7 +45,7 @@ export const Main = () => {
             </div>
           </div>
 
-          <div className=" drop-shadow-2xl w-96 h-56 rounded-xl bg-white hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150">
+          <div className=" drop-shadow-lg	 w-96 h-56 rounded-xl bg-white hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150">
             <div className="px-6 py-4 flex items-center gap-2 border-b-2">
               <div className="w-2 h-2 bg-lime-500 rounded"></div>
               <h1 className=" text-slate-900 text-base font-semibold">
@@ -56,7 +71,7 @@ export const Main = () => {
             </div>
           </div>
 
-          <div className=" drop-shadow-2xl w-96 h-56 rounded-xl bg-white hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150">
+          <div className=" drop-shadow-lg	 w-96 h-56 rounded-xl bg-white hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-150">
             <div className="px-6 py-4 flex items-center gap-2 border-b-2">
               <div className="w-2 h-2 bg-blue-600 rounded"></div>
               <h1 className=" text-slate-900 text-base font-semibold">
@@ -90,15 +105,16 @@ export const Main = () => {
               </h1>
             </div>
 
-            <div className="px-6 py-8 flex flex-row gap-4">
-              <div className="flex gap-5 flex-col text-zinc-500 text-sm">
+            <div className="px-6 py-8 flex flex-row gap-4 drop-shadow-lg	">
+              {/* <div className="flex gap-5 flex-col text-zinc-500 text-sm">
                 <h1>3’000’000</h1>
                 <h1>2’000’000</h1>
                 <h1>1’000’000</h1>
                 <h1>0</h1>
-              </div>
-
-              <div className=" flex gap-10">
+              </div> */}
+              {/* <Line data={data} /> */}
+              <Chart></Chart>
+              {/* <div className=" flex gap-10">
                 <div className="flex flex-col items-center">
                   <div className="flex items-end">
                     <div className="w-4 rounded-tl-[1000px] rounded-tr-[1000px] h-32 bg-lime-500"></div>
@@ -148,10 +164,10 @@ export const Main = () => {
                   </div>
                   <h1>Jul</h1>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
-          <div className=" rounded-xl bg-white ">
+          <div className="drop-shadow-lg	 rounded-xl bg-white ">
             <div className="px-6 py-4 flex items-center gap-2 border-b-2 place-content-between ">
               <h1 className=" text-slate-900 text-base font-semibold">
                 Income - Expense

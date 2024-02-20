@@ -1,8 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { MainLogo } from "./Icons/MainLogo";
 import Link from "next/link";
+const BASE_URL = "http://localhost:8080/";
 
 export const Login = () => {
+  //INPUT EES ORJ IRSEN VALUEG AVAH
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const emailInput = (e) => {
+    setEmail(e.target.value);
+    console.log(e.target.value, "email");
+  };
+
+  const passInput = (e) => {
+    setPassword(e.target.value);
+    console.log(e.target.value, "pass");
+  };
+
+  //DB TAPLE AAS USER IIN DATA GAA AVAN HARITSUULAH ACCES HIIH
+
+  const handleLogin = async () => {
+    // const interUserData = {
+    //   email: email,
+    //   password: password,
+    // };
+
+    try {
+      const res = await fetch(BASE_URL + "login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      alert("amjilttai");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <div className="lg:w-screen h-screen flex ">
       {/* INTRACT USER AREA */}
@@ -30,14 +65,21 @@ export const Login = () => {
               type="email"
               placeholder="email"
               className=" input h-10 lg:input lg:input-bordered  lg:h-12 dark:text-slate-300  "
+              onChange={emailInput}
+              value={email}
             />
             <input
               type="password"
               placeholder="password"
               className=" input input-bordered   h-12 dark:text-slate-300"
+              onChange={passInput}
+              value={password}
             />
             <Link href={"./main"}>
-              <button className="btn text-white text-xl bg-blue-600 w-96 h-12 rounded-2xl	">
+              <button
+                className="btn text-white text-xl bg-blue-600 w-96 h-12 rounded-2xl	"
+                onClick={handleLogin}
+              >
                 Log in
               </button>
             </Link>
